@@ -3,6 +3,7 @@ import { isRecord } from "#shared/values/values.check.ts";
 import { ExpectedError } from "#shared/expected.error.ts";
 import { parseApiUrl } from "#core/settings/settings.load.ts";
 import { responseError } from "./http.error.ts";
+const NO_CONTENT = 204;
 async function configuration(fetch: Fetch): Promise<RuntimeConfig> {
   const response = await fetch("/runtime-config.json");
   const body: unknown = await response.json();
@@ -17,7 +18,7 @@ async function configuration(fetch: Fetch): Promise<RuntimeConfig> {
 async function send(fetch: Fetch, request: HttpRequest): Promise<unknown> {
   const config = await configuration(fetch);
   const response = await fetch(new URL(request.path, config.apiBaseUrl).href, request.init);
-  const empty = response.status === 204;
+  const empty = response.status === NO_CONTENT;
   const body: unknown = empty ? undefined : await response.json();
   if (!response.ok) throw responseError(body, response.status);
   return body;

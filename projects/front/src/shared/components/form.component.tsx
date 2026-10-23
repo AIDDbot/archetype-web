@@ -1,6 +1,6 @@
-import type { ReactElement, FormEventHandler } from "react";
+import type { ReactElement, SubmitEventHandler } from "react";
 import type { Control, RecordFormModel, ShownField, StateProps } from "./record.type.ts";
-type FormProps = { model: RecordFormModel; onSubmit: FormEventHandler<HTMLFormElement> };
+type FormProps = { model: RecordFormModel; onSubmit: SubmitEventHandler<HTMLFormElement> };
 type FieldProps = { field: ShownField };
 const controls: Record<Control, (props: FieldProps) => ReactElement> = {
   input: (props) => (

@@ -3,6 +3,7 @@ import type {
   RouteResponse as HttpResponse,
 } from "#shared/http/route.contract.ts";
 import type { Feature } from "#shared/http/feature.contract.ts";
+const NOT_FOUND = 404;
 export type RouteDescription = { method: string; path: string };
 export function routeIndex(features: Feature[]): RouteDescription[] {
   return features.flatMap((feature) =>
@@ -21,5 +22,5 @@ export function indexHandler(
   };
 }
 export function notFoundHandler(_request: HttpRequest, response: HttpResponse): void {
-  response.status(404).json({ error: "Not found" });
+  response.status(NOT_FOUND).json({ error: "Not found" });
 }

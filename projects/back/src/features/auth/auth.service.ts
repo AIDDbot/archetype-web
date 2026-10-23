@@ -12,6 +12,7 @@ import type {
   AccountRequest,
   Account,
 } from "./auth.type.ts";
+const MILLISECONDS_PER_HOUR = 3_600_000;
 export function publicUser(user: StoredUser): PublicUser {
   return {
     id: user.id,
@@ -50,7 +51,9 @@ function login(services: AuthServices, input: LoginInput): Login {
   if (rejected) throw new ExpectedError({ kind: "unauthorized", message: "Invalid credentials" });
   const token = services.tokens.create();
   const now = services.clock();
-  const expiresAt = new Date(now.getTime() + services.sessionTtlHours * 3600000).toISOString();
+  const expiresAt = new Date(
+    now.getTime() + services.sessionTtlHours * MILLISECONDS_PER_HOUR,
+  ).toISOString();
   services.repository.saveSession({
     userId: user.id,
     tokenHash: services.tokens.hash(token),

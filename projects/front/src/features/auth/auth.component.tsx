@@ -1,5 +1,5 @@
 import { useRef, useState, useSyncExternalStore } from "react";
-import type { FormEvent, ReactElement } from "react";
+import type { ReactElement, SubmitEvent } from "react";
 import { Link } from "react-router";
 import type { PageProps } from "#shared/components/page.contract.ts";
 import { RecordForm } from "#shared/components/form.component.tsx";
@@ -12,7 +12,7 @@ export function AuthPage(props: AuthProps): ReactElement {
   const [result, setResult] = useState(initial);
   const [sending, setSending] = useState(false);
   const active = useRef(false);
-  async function submit(event: FormEvent<HTMLFormElement>): Promise<void> {
+  async function submit(event: SubmitEvent<HTMLFormElement>): Promise<void> {
     event.preventDefault();
     if (active.current) return;
     active.current = true;

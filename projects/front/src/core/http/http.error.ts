@@ -1,12 +1,13 @@
 import { ExpectedError } from "#shared/expected.error.ts";
 import type { ErrorKind, ErrorFields } from "#shared/expected.error.ts";
 import { isRecord } from "#shared/values/values.check.ts";
+const FIRST_SERVER_ERROR = 500;
 export function responseError(body: unknown, status: number): ExpectedError {
   const record = isRecord(body);
   if (!record) return invalidError();
   const invalid = typeof body.error !== "string";
   if (invalid) return invalidError();
-  const serverError = status >= 500;
+  const serverError = status >= FIRST_SERVER_ERROR;
   const kind = serverError ? "unavailable" : "rule";
   return expected({ kind, message: String(body.error), fields: body.fields });
 }

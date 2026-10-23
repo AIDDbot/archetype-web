@@ -1,5 +1,6 @@
 import type { NextFunction } from "express";
 import type { HttpRequest as Request, HttpResponse as Response } from "./http.contract.ts";
+const NO_CONTENT = 204;
 function allowedOrigin(configured: string, received: string | undefined): string | undefined {
   const wildcard = configured === "*";
   if (wildcard) return "*";
@@ -26,6 +27,6 @@ export function corsMiddleware(
       "Access-Control-Allow-Methods": "GET, HEAD, PUT, PATCH, POST, DELETE",
       "Access-Control-Allow-Headers": "Content-Type, X-Request-Id, Authorization",
     });
-    response.status(204).end();
+    response.status(NO_CONTENT).end();
   };
 }

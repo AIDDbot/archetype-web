@@ -1,5 +1,5 @@
 import { useSyncExternalStore } from "react";
-import type { FormEvent, ReactElement } from "react";
+import type { ReactElement, SubmitEvent } from "react";
 import type { PageProps } from "#shared/components/page.contract.ts";
 import { RecordForm } from "#shared/components/form.component.tsx";
 import { settingsForm, settingsInput } from "./settings.model.ts";
@@ -8,7 +8,7 @@ export type SettingsProps = PageProps & { store: SettingsStore };
 export function SettingsPage(props: SettingsProps): ReactElement {
   const store = props.store;
   const state = useSyncExternalStore(store.state.subscribe, store.state.read);
-  async function submit(event: FormEvent<HTMLFormElement>): Promise<void> {
+  async function submit(event: SubmitEvent<HTMLFormElement>): Promise<void> {
     event.preventDefault();
     await store.save(settingsInput(new FormData(event.currentTarget)));
   }

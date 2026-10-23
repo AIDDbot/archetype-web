@@ -11,7 +11,7 @@ test("normalizes names and email, preserves password spaces, and discards client
   });
 });
 test("reports all invalid fields and accepts each closed boundary", () => {
-  expect(() => readRegistration({ name: "a", email: "a", password: "a" })).toThrowError(
+  expect(() => readRegistration({ name: "a", email: "a", password: "a" })).toThrow(
     expect.objectContaining({
       fields: { name: expect.any(String), email: expect.any(String), password: expect.any(String) },
     }),

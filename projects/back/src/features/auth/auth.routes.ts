@@ -7,6 +7,8 @@ import { migration } from "./auth.migration.ts";
 import { createFacade } from "./auth.api.ts";
 import type { AuthFacade } from "./auth.api.ts";
 import type { AuthLogic } from "./auth.type.ts";
+const CREATED = 201;
+const NO_CONTENT = 204;
 export type AuthRegistration = { feature: Feature; facade: AuthFacade };
 export function registerAuth(): AuthRegistration {
   let logic: AuthLogic;
@@ -22,7 +24,7 @@ export function registerAuth(): AuthRegistration {
         path: "/auth/register",
         public: true,
         handler: (request, response) =>
-          response.status(201).json(logic.register(readRegistration(request.body))),
+          response.status(CREATED).json(logic.register(readRegistration(request.body))),
       },
       {
         method: "post",
@@ -40,7 +42,7 @@ export function registerAuth(): AuthRegistration {
         path: "/auth/logout",
         handler: (request, response) => {
           logic.logout(readSession(request));
-          return response.status(204).end();
+          return response.status(NO_CONTENT).end();
         },
       },
     ],

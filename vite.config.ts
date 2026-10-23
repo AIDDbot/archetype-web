@@ -24,6 +24,7 @@ export default defineConfig({
     rules: {
       "react/react-in-jsx-scope": "off",
       "typescript/no-non-null-assertion": "error",
+      "typescript/no-deprecated": "error",
       "import/no-unassigned-import": ["error", { allow: ["**/*.css"] }],
     },
   },

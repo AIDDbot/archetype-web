@@ -1,18 +1,11 @@
 # Archetype Web
 
-A whole web solution to start from: an API, browser screens, user accounts and their settings, with an acceptance suite. It has no business feature.
+Welcome. This is a web system that is ready on its first day: an API, the browser screens, user accounts with their settings, and an acceptance suite that proves each of them. It has no business feature yet. That part is yours.
 
 [AIDDbot](https://github.com/AIDDbot/AIDDbot) copies this workspace into each new web system. You can also use it on your own.
 
-## Projects
-
-| Folder | Type | Technology |
-| --- | --- | --- |
-| [`projects/back/`](./projects/back/) | `api` | Node.js, Express, SQLite |
-| [`projects/front/`](./projects/front/) | `web` | Vite, React, react-router, Pico CSS |
-| [`projects/e2e/`](./projects/e2e/) | `e2e` | Playwright with Chromium |
-
-All in TypeScript, in one npm workspace with [Vite+](https://viteplus.dev).
+- [What it does](./.product/PRD.md): the features, each one with its spec.
+- [How it is made](./.product/system.md): the projects, the technology and the technical decisions.
 
 ## Start
 

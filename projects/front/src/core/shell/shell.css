@@ -1,0 +1,33 @@
+.shell-header {
+  padding: 1rem;
+  background-color: var(--pico-background-color);
+  color: var(--pico-color);
+}
+.shell-header nav,
+.shell-header nav ul {
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.shell-header nav ul {
+  margin: 0;
+  max-width: 100%;
+}
+.shell-header a {
+  color: var(--pico-primary);
+}
+.shell-header [aria-current="page"] {
+  text-decoration: underline;
+  font-weight: bold;
+}
+.home-header {
+  background-color: var(--pico-background-color);
+  color: var(--pico-color);
+  padding: 1rem;
+}
+.shell-header,
+.home-header {
+  overflow-wrap: anywhere;
+}
+.grid[aria-label="Application cards"] {
+  min-height: 1rem;
+}

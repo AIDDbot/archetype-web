@@ -1,0 +1,39 @@
+{
+  "name": "front",
+  "displayName": "Archetype Web",
+  "version": "0.4.0",
+  "private": true,
+  "description": "A web application with its API, its browser screens and its acceptance suite",
+  "license": "MIT",
+  "author": {
+    "name": "Alberto Basalo",
+    "url": "https://x.com/albertobasalo"
+  },
+  "type": "module",
+  "imports": {
+    "#shared/*": "./src/shared/*",
+    "#core/*": "./src/core/*",
+    "#api/*": "./src/features/*/*.api.ts",
+    "#package": "./package.json"
+  },
+  "scripts": {
+    "test": "vp test run --passWithNoTests",
+    "layers": "vp lint -c boundaries.json",
+    "crap": "vp lint -c complexity.json && vp test run --coverage --passWithNoTests",
+    "start": "vp dev"
+  },
+  "dependencies": {
+    "@fontsource/anonymous-pro": "^5.3.0",
+    "@fontsource/audiowide": "^5.3.0",
+    "@fontsource/roboto": "^5.3.0",
+    "@picocss/pico": "^2.1.1",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "react-router": "^8.5.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.2"
+  }
+}

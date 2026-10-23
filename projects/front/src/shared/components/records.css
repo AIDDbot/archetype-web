@@ -1,0 +1,12 @@
+.record-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+  gap: var(--pico-spacing);
+}
+
+.overflow-auto {
+  max-width: 100%;
+}
+.overflow-auto table {
+  min-width: 40rem;
+}

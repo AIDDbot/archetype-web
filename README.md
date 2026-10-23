@@ -26,6 +26,10 @@ npm test
 
 `npm install` runs `prepare`, which installs the pre-commit hook. `npm start` starts the `back` and the `front` in parallel. `npm test` runs the unit tests of each project but the `e2e`, and `npm run test:e2e` runs the acceptance tests. `npm run check` checks the whole repository with no fix: format, lint and types, and `layers` and `crap` of each project (with the unit tests and their coverage); each step runs also after a red one, and the last line gives each red step; `npm run fix` applies the safe fixes. `npm run upgrade` raises each dependency of the root and of each project to its latest version. In each project: `npm test`, `npm run layers` (import boundaries) and `npm run crap` (complexity and coverage).
 
+## Changes
+
+Changes pass the archetype gate of the Builder (`handover.md`).
+
 ## License
 
 [MIT](./LICENSE)
